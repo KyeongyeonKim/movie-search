@@ -21,21 +21,71 @@
         let movieList = response['results'];
 
         movieList.forEach(element => {
-         let title = element['title'];
-         let overview = element['overview'];
-         let poster_path = element['poster_path'];
-         let vote_average = element['vote_average'];
+          let title = element['title'];
+          let overview = element['overview'];
+          let poster_path = "https://image.tmdb.org/t/p/w500" + element['poster_path'];
+          let vote_average = element['vote_average'];
+          let movieId = element['id'];
 
-         let temp_html = `<div class="movie-card">
-                          <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="">
+          let temp_html = `<div class="movie-card" id="movie-card" onclick = alert("영화"+"id:"+"${movieId}")>
+                          <img src="${poster_path}" alt="">
                           <h3>[${title}]</h3>
-                          <p>요약 : ${overview}</p>
-                          <p>평점 : ${vote_average}</p>
+                          <p>요약 : ${overview}</p><br>
+                          <h5>평점 : ${vote_average}</h5>
                         </div>`;
-          $('#card-list').append(temp_html);
-        });
 
-      })
+          document.getElementById("card-list").innerHTML += temp_html;
+          //$('#card-list').append(temp_html);
+
+          // ---------------------------------------------------------------------
+
+          function filterMovies(movieTitle) {
+
+            filterArr = movieList.filter((item) =>
+              item.title.toLowerCase().includes(movieTitle)
+            );
+
+            document.getElementById("card-list").innerHTML = "";
+
+            filterArr.forEach((data) => {
+              let title = data.title;
+              let vote_average = data.vote_average;
+              let overview = data.overview;
+              let poster_path = "https://image.tmdb.org/t/p/w500" + data['poster_path'];
+              let id = data.id;
+
+              let temp_html = `<div class="movie-card" id="movie-card" data-id="${id}" onclick = alert("영화"+"id:"+"${id}")>
+                          <img src="${poster_path}" alt="">
+                          <h3>[${title}]</h3>
+                          <p>요약 : ${overview}</p><br>
+                          <h5>평점 : ${vote_average}</h5>
+                        </div>`;
+
+              document.getElementById("card-list").innerHTML += temp_html;
+            });
+          }
+
+          const searchInput = document.querySelector("#search-input");
+          const searchButton = document.querySelector("#search-btn");
+
+          function btnClickDisplay() {
+            let movieTitle = searchInput.value.toLowerCase().trim();
+            if (movieTitle === "") {
+              alert("Please write movie title");
+            } else if (movieTitle.length > 50) {
+              alert("your movie title is too long");
+            } else {
+
+              filterMovies(movieTitle);
+            }
+          }
+          searchButton.addEventListener("click", btnClickDisplay);
+
+          // ---------------------------------------------------------------------
+
+
+        })
+      }).catch(err => console.error(err));
   </script>
 </head>
 
@@ -44,11 +94,11 @@
     <h2>&#127914; 최고 평점 영화 콜렉션 &#127916;</h2>
   </header>
   <main>
-      <form class="search" onsubmit="handleSearch(event)">
-        <label>영화 검색 : </label>
-        <input type="text" id="search-input" placeholder="영화 제목을 검색해 보세요" />
-        <button type="submit" id="search-btn">검색</button>
-    </form>
+    <div class="search">
+      <label>영화 검색 : </label>
+      <input type="text" id="search-input" placeholder="영화 제목을 검색해 보세요" />
+      <button type="submit" id="search-btn" onclick="searchBtn()">검색</button>
+    </div>
     <section class="card-list" id="card-list">
       <!-- <div class="movie-card" id="movie-card">
         <img src="" alt="">
