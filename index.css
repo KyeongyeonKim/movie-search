@@ -10,6 +10,7 @@ body {
 }
 
 .card-list {
+  font-family: 'Playfair Display', serif;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;
@@ -22,6 +23,17 @@ body {
   width: 300px;
   justify-self: center;
   background-color: bisque;
+  border-radius: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.movie-card:hover{
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.24);
+  margin: 20px;
+  padding: 15px;
+  width: 320px;
+  justify-self: center;
+  background-color:antiquewhite;
   border-radius: 10px;
   cursor: pointer;
   user-select: none;
