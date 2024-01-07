@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="./index.css">
   <title>Top Rated Movie</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
@@ -23,11 +24,15 @@
 
 <body>
   <header>
-    <h2>최고 평점 영화 콜렉션</h2>
+    <h2>&#127914; 최고 평점 영화 콜렉션 &#127916;</h2>
   </header>
   <main>
-    <p>영화 검색 : <input type="text" id="search-input" placeholder="영화 제목을 검색해 보세요">
-      <button type="submit" id="search-btn">검색</button></p>
+      <form class="search" onsubmit="handleSearch(event)">
+        <label>영화 검색 : </label>
+        <input type="text" id="search-input" placeholder="영화 제목을 검색해 보세요" />
+        <button type="submit" id="search-btn">검색</button>
+    </form>
+    <section class="card-list"></section>
   </main>
   <footer></footer>
 </body>
