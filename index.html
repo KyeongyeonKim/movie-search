@@ -74,8 +74,9 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
       function btnClickDisplay() {
         let movieTitle = searchInput.value.toLowerCase().trim();
         if (movieTitle === "") {
-          alert("제목을 입력하세요!");
-          return false;
+          window.location.reload();
+          //alert("제목을 입력하세요!");
+          //return false;
         } else {
           filterMovies(movieTitle);
         }
@@ -98,7 +99,7 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
     <div class="search">
       <label>&#128270; 영화 검색 : </label>
       <input type="text" id="search-input" placeholder="영화 제목을 검색해 보세요" />
-      <button type="submit" id="search-btn" onclick="searchBtn()">SEARCH</button>
+      <button type="submit" id="search-btn">SEARCH</button>
     </div>
     <section class="card-list" id="card-list">
       <!-- <div class="movie-card" id="movie-card">
