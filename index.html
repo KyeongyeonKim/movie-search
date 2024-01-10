@@ -8,7 +8,6 @@
       @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
     </style>
     <title>Top Rated Movie</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="module" src="./src/main.js"></script>
   </head>
 
@@ -16,25 +15,17 @@
     <header>
       <h2>&#127914; 최고 평점 영화 콜렉션 &#127916;</h2>
     </header>
-    <main>
-      <div class="search">
-        <label>&#128270; 영화 검색 : </label>
-        <input
-          type="text"
-          id="search-input"
-          placeholder="영화 제목을 검색해 보세요"
-        />
-        <button type="submit" id="search-btn">SEARCH</button>
-      </div>
-      <section class="card-list" id="card-list">
-        <!-- <div class="movie-card" id="movie-card">
-        <img src="" alt="">
-        <h3>[]</h3>
-        <p>요약 : </p>
-        <p>평점 : </p>
-      </div> -->
-      </section>
-    </main>
+    <form id="search-form">
+      <label>영화 검색 : </label>
+      <input
+        name="searchValue"
+        type="text"
+        id="search-input"
+        placeholder="영화 제목을 검색해 보세요"
+      />
+      <button type="submit" id="search-btn">검색</button>
+    </form>
+    <ul id="card-list"></ul>
     <footer></footer>
   </body>
 </html>

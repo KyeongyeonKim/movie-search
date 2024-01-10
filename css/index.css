@@ -5,12 +5,33 @@
 }
 
 body {
-  background-color:aliceblue;
+  background-color: aliceblue;
   min-height: 100vh;
 }
 
-.card-list {
-  font-family: 'Playfair Display', serif;
+#search-form {
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 1px solid black;
+}
+
+#search-form label {
+  font-size: 25px;
+}
+
+#search-form input {
+  margin-left: 20px;
+  min-width: 200px;
+  padding: 5px 10px;
+}
+
+#search-form button {
+  margin-left: 10px;
+  padding: 5px;
+}
+
+#card-list {
+  font-family: "Playfair Display", serif;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;
@@ -27,13 +48,13 @@ body {
   cursor: pointer;
   user-select: none;
 }
-.movie-card:hover{
+.movie-card:hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.24);
   margin: 20px;
   padding: 15px;
   width: 320px;
   justify-self: center;
-  background-color:antiquewhite;
+  background-color: antiquewhite;
   border-radius: 10px;
   cursor: pointer;
   user-select: none;
@@ -50,29 +71,6 @@ header {
   justify-content: center;
   align-items: center;
   padding: 30px 0;
-}
-
-.search {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 20px 0;
-  border-bottom: 1px solid black;
-}
-
-.search label {
-  font-size: 25px;
-}
-
-.search input {
-  margin-left: 20px;
-  min-width: 200px;
-  padding: 5px 10px;
-}
-
-.search button {
-  margin-left: 10px;
-  padding: 5px;
 }
 
 h3 {
